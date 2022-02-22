@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import List from './components/List'
 import './styles.css'
 
 
@@ -18,6 +19,7 @@ function App() {
   return (
     <div>
       <h1>People invited to my party</h1>
+      <List people = {people}/>
     </div>
   );
 }
