@@ -1,16 +1,8 @@
-import { FC } from 'react'
+import React from 'react'
+import { IState as IProps } from '../App'
 //define the type of props being sent to List
 
-interface IProps {
-    people: {
-      name:string,
-      age:number,
-      url:string,
-      note?:string
-    }[]
-  }
-
-const List:FC<IProps> = ({people}) => {
+const List:React.FC<IProps> = ({people}) => {
 
 
     //with this function, you want to return an array of JSX elements
