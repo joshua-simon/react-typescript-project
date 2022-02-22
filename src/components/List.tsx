@@ -1,4 +1,4 @@
-
+import { FC } from 'react'
 //define the type of props being sent to List
 
 interface IProps {
@@ -10,12 +10,29 @@ interface IProps {
     }[]
   }
 
-const List = (props:IProps) => {
-    //you can destructure props as normal, ie, ({people}: IProps,)
+const List:FC<IProps> = ({people}) => {
+
+
+    //with this function, you want to return an array of JSX elements
+    const renderList = (): JSX.Element[] => {
+        return people.map((person) => {
+            return(
+                <li className='List'>
+                    <div className='List-header'>
+                        <img className='List-img' src = {person.url}/>
+                        <h2>{person.name}</h2>
+                    </div>
+                    <p>{person.age} years old</p>
+                    <p className='List-note'>{person.note}</p>
+                </li>
+            )
+        })
+    }
+
     return(
-        <div>
-            This is the list
-        </div>
+        <ul>
+            {renderList()}
+        </ul>
     )
 }
 
